@@ -1,0 +1,29 @@
+# General
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+
+# config files #
+.eslintrc.json
+.eslintignore
+.editorconfig
+.babelrc
+.prettierignore
+.jshintrc
+
+# Logs
+logs
+*.log
+
+
+# Compiled Dirs (http://nodejs.org/api/addons.html)
+build/
+dist/bundle.js
+
+
+# Dependency directorys
+node_modules/
+
+
+

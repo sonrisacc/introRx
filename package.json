@@ -1,0 +1,39 @@
+{
+  "name": "waterfall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server index.js",
+    "build": "webpack --watch",
+    "dev": "nodemon ./server index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonrisacc/waterFall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonrisacc/waterFall/issues"
+  },
+  "homepage": "https://github.com/sonrisacc/waterFall#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "rxjs": "^5.5.10"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "jest": "^22.1.4",
+    "nodemon": "^1.14.11",
+    "prettier": "^1.10.2",
+    "webpack": "^3.10.0"
+  }
+}
