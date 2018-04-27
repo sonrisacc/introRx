@@ -25,39 +25,30 @@ const responseStream = requestStream
 });
 
 
-responseStream.subscribe(response => {
-  console.log(response);
+const suggestion1Stream = close1ClickStream.startWith('startup click')
+  .combineLatest(responseStream,             
+    function(click, listUsers) {
+      return listUsers[Math.floor(Math.random()*listUsers.length)];
+    }
+  )
+  .merge(
+    refreshClickStream.map(function(){ return null; })
+  )
+  .startWith(null);
+
+suggestion1Stream.subscribe(function(response) {
+  if(response === null ) {
+
+  } else {
+    const suggestion1Box = document.getElementById('suggestion1');
+    const avatar = suggestion1Box.querySelector('img');
+    const username = suggestion1Box.querySelector('.username');
+
+    avatar.src = response? response.avatar_url : "#";
+    avatar.href = response? response.avatar_url : "#";
+    username.innerHTML = response ? response.login : "#";
+  }
 });
-
-
-
-// const suggestion1Stream = close1ClickStream.startWith('startup click')
-//   .combineLatest(responseStream,             
-//     function(click, listUsers) {
-//       return listUsers[Math.floor(Math.random()*listUsers.length)];
-//     }
-//   )
-//   .merge(
-//     refreshClickStream.map(function(){ return null; })
-//   )
-//   .startWith(null);
-
-// suggestion1Stream.subscribe(function(response) {
-//   // render `response` to the DOM however you wish
-//   if(response === null ) {
-
-//   } else {
-//     const suggestion1Box = document.getElementById('suggestion1');
-//     const avatar = suggestion1Box.querySelector('img');
-//     const username = suggestion1Box.querySelector('.username');
-
-//     avatar.src = response? response.avatar_url : "#";
-//     avatar.href = response? response.avatar_url : "#";
-//     username.innerHTML = response ? response.login : "#";
-//     // username.href= response? response.html_url : "#";
-//   }
- 
-// });
 
 
 
