@@ -24,7 +24,6 @@ const responseStream = requestStream
   return Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
 });
 
-
 const suggestion1Stream = close1ClickStream.startWith('startup click')
   .combineLatest(responseStream,             
     function(click, listUsers) {
@@ -37,10 +36,11 @@ const suggestion1Stream = close1ClickStream.startWith('startup click')
   .startWith(null);
 
 suggestion1Stream.subscribe(function(response) {
+   const suggestion1Box = document.getElementById('suggestion1');
   if(response === null ) {
-
+  	    suggestion1Box.style.display ="none";
   } else {
-    const suggestion1Box = document.getElementById('suggestion1');
+    suggestion1Box.style.display ="block";
     const avatar = suggestion1Box.querySelector('img');
     const username = suggestion1Box.querySelector('.username');
 
